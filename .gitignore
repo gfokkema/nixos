@@ -1,5 +1,6 @@
 .*
 
 active-host.nix
+hardware-configuration.nix
 nixpkgs
 result
