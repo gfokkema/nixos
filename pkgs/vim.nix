@@ -1,5 +1,9 @@
-{}:
-''
+# pkgs/vim.nix
+
+{ pkgs, ... }:
+
+let
+  custom_rc = ''
 " All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
 " /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
@@ -32,5 +36,9 @@ filetype plugin on
 
 set expandtab
 set shiftwidth=2
-set softtabstop=2
-''
+set softtabstop=2'';
+in
+pkgs.vim_configurable.customize {
+  name = "vi";
+  vimrcConfig.customRC = custom_rc;
+}

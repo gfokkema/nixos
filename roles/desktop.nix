@@ -1,6 +1,6 @@
 # desktop.nix
 
-{ config, pkgs, stdenv, ... }:
+{ pkgs, ... }:
 
 {
   # Enable the X11 windowing system.
@@ -14,5 +14,6 @@
 
   environment.systemPackages = with pkgs; [
     chromium
+    #telegram-desktop
   ];
 }

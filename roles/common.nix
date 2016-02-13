@@ -1,16 +1,9 @@
 # common-configuration.nix
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [];
-
   system.stateVersion = "15.09";
-
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "nodev";
 
   # Select internationalisation properties.
   i18n = {
@@ -43,11 +36,6 @@
     git
     nix-repl
     tmux
-    (
-      pkgs.vim_configurable.customize {
-        name = "vi";
-        vimrcConfig.customRC = (import ./vimrc.nix {});
-      }
-    )
+    (import ../pkgs/vim.nix { pkgs = pkgs; })
   ];
 }

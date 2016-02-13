@@ -1,6 +1,6 @@
 # laptop.nix
 
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   services.xserver.synaptics = {
