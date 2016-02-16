@@ -2,6 +2,9 @@
 
 { pkgs, ... }:
 
+let
+  vim = import ../pkgs/vim.nix { pkgs = pkgs; };
+in
 {
   system.stateVersion = "15.09";
 
@@ -37,6 +40,7 @@
     git
     nix-repl
     tmux
-    (import ../pkgs/vim.nix { pkgs = pkgs; })
+    tree
+    vim
   ];
 }

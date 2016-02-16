@@ -18,9 +18,12 @@
     desktopManager.gnome3.enable = true;
   };
 
+  users.extraUsers.gerlof.extraGroups = [ "networkmanager" ];
+
   environment.systemPackages = with pkgs; [
     chromium
     mplayer
+    networkmanager_openconnect
     #telegram-desktop
   ];
 }
