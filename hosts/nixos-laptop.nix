@@ -1,6 +1,6 @@
 # hosts/nixos-laptop.nix
 
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -10,9 +10,14 @@
   ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "nodev";
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    device = "nodev";
+    os-prober.enable = true;
+  };
 
   networking.hostName = "nixos-laptop"; # Define your hostname.
+
+  environment.systemPackages = with pkgs; [ os-prober-grub ];
 }
